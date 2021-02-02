@@ -30,8 +30,8 @@ public class fetchData extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... voids) {
         try {
             //Make API connection
-            URL url = new URL("https://api.themoviedb.org/3/search/movie?api_key=9d3d87dfab03093a4a78ce77f8b3072b&query=" + movie.replaceAll(" ", "+"));
-            Log.i("logtest", "https://api.themoviedb.org/3/search/movie?api_key=9d3d87dfab03093a4a78ce77f8b3072b&query=" + movie.replaceAll(" ", "+"));
+            URL url = new URL("https://api.themoviedb.org/3/search/movie?api_key=9c29bf62bcb9b9eb53965e3ed808540e&query=" + movie.replaceAll(" ", "+"));
+            Log.i("logtest", "https://api.themoviedb.org/3/search/movie?api_key=9c29bf62bcb9b9eb53965e3ed808540e&query=" + movie.replaceAll(" ", "+"));
 
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
