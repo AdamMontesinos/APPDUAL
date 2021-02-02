@@ -29,7 +29,7 @@ public class fetchData extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... voids) {
         try {
-            //Make API connection
+            //Make API connection with key
             URL url = new URL("https://api.themoviedb.org/3/search/movie?api_key=9c29bf62bcb9b9eb53965e3ed808540e&query=" + movie.replaceAll(" ", "+"));
             Log.i("logtest", "https://api.themoviedb.org/3/search/movie?api_key=9c29bf62bcb9b9eb53965e3ed808540e&query=" + movie.replaceAll(" ", "+"));
 
