@@ -11,9 +11,11 @@
         android:id="@+id/editTextTextPersonName"
         android:layout_width="293dp"
         android:layout_height="65dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="38dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

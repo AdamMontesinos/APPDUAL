@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         process.execute();
         //
 
-        signInButton = findViewById(R.id.sign_in_button1);
+        signInButton = findViewById(R.id.sign_in_button);
 
         mAuth = FirebaseAuth.getInstance();
 
