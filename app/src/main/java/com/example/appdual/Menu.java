@@ -16,7 +16,7 @@ public class Menu extends AppCompatActivity {
 
     public void BuscarPeli(View view){
         Intent a = new Intent (this, BuscarPeli.class);
-        startActivity(BuscarPeli);
+        startActivity(BPelis);
     }
 
     public void Social(View view){

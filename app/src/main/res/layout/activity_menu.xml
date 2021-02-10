@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/BPelis"
         android:layout_width="254dp"
         android:layout_height="54dp"
         android:layout_marginTop="104dp"
