@@ -26,8 +26,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class MainActivity extends AppCompatActivity {
 
-    SignInButton signInButton;
-
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 0;
 
@@ -59,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        signInButton.setOnClickListener(new View.OnClickListener(){
+        btnGoogle.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 signIn();
