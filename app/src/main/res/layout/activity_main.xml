@@ -24,8 +24,8 @@
 
     <ImageView
         android:id="@+id/Imagen"
-        android:layout_width="390dp"
-        android:layout_height="342dp"
+        android:layout_width="352dp"
+        android:layout_height="302dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -36,26 +36,13 @@
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
-        android:layout_width="243dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="216dp"
+        android:layout_width="202dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="288dp"
         android:background="@android:color/holo_blue_light"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.595"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </com.google.android.gms.common.SignInButton>
-
-    <ImageButton
-        android:id="@+id/GoogleButton"
-        android:layout_width="46dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="232dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.123"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/common_google_signin_btn_icon_light_focused" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
