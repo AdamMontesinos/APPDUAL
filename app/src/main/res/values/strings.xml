@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">APPDUAL</string>
+    <string name="search_hint" />
+    <string name="app_label" />
 </resources>

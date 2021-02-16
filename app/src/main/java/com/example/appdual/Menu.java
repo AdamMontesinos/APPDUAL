@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class Menu extends AppCompatActivity {
 
@@ -12,20 +13,32 @@ public class Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-    }
 
-    public void BuscarPeli(View view){
-        Intent a = new Intent (this, BuscarPeli.class);
-        startActivity(BPelis);
-    }
+        Button btn1 = (Button) findViewById(R.id.BPelis);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (v.getContext(), BuscarPeli.class);
+                startActivityForResult(intent, 0);
+            }
+        });
 
-    public void Social(View view){
-        Intent b = new Intent (this, Social.class);
-        startActivity(Social);
-    }
+        Button btn2 = (Button) findViewById(R.id.BSocial);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (v.getContext(), Social.class);
+                startActivityForResult(intent, 0);
+            }
+        });
 
-    public void Perfil(View view){
-        Intent c = new Intent (this, Perfil.class);
-        startActivity(Perfil);
+        Button btn3 = (Button) findViewById(R.id.BPerfil);
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (v.getContext(), Perfil.class);
+                startActivityForResult(intent, 0);
+            }
+        });
     }
 }

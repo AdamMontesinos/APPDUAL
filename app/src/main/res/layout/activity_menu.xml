@@ -8,7 +8,7 @@
     tools:context=".Menu">
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/BSocial"
         android:layout_width="254dp"
         android:layout_height="54dp"
         android:layout_marginTop="300dp"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/BPerfil"
         android:layout_width="254dp"
         android:layout_height="54dp"
         android:layout_marginTop="500dp"
