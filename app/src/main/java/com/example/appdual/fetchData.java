@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 
+import com.example.appdual.Class.Film;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,6 +17,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 public class fetchData extends AsyncTask<Void, Void, Void> {
 
@@ -62,12 +65,16 @@ public class fetchData extends AsyncTask<Void, Void, Void> {
 
         try {
             jObject = new JSONObject(data);
+            List<Film> PeliLista = new ArrayList<>();
 
             JSONArray results = new JSONArray(jObject.getString("results"));
             for(int i=0; i<results.length(); i++){
                 JSONObject movie = new JSONObject(results.getString(i));
                 String title  = movie.getString("title");
+
                 Log.i("logTest",  title);
+
+                PeliLista.add(new Film(title));
             }
         } catch (JSONException e) {
             e.printStackTrace();

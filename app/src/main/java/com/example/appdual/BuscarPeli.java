@@ -17,14 +17,14 @@ public class BuscarPeli extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar_peli);
-    }
 
-    Button btnSearch = findViewById(R.id.BPelis2);
+        Button btnSearch = findViewById(R.id.BPelis2);
         btnSearch.setOnClickListener(new View.OnClickListener() {
-        public void onClick(View v) {
-
-        }
-    });
+            public void onClick(View v) {
+                showTxtSearch();
+            }
+        });
+    }
 
     public void showTxtSearch(){
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
