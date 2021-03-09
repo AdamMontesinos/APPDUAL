@@ -1,11 +1,16 @@
 package com.example.appdual;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
 public class Menu extends AppCompatActivity {
 
@@ -40,5 +45,27 @@ public class Menu extends AppCompatActivity {
                 startActivityForResult(intent, 0);
             }
         });
+
+        Button signoutButton = (imageButton) findViewById(R.id.signout);
+        signoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.signout:
+                        signOut();
+                        break;
+                }
+
+            }
+        });
+    }
+    private void signOut() {
+        mGoogleSignInClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // ...
+                    }
+                });
     }
 }

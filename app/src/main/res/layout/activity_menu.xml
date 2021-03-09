@@ -11,7 +11,7 @@
         android:id="@+id/BSocial"
         android:layout_width="254dp"
         android:layout_height="54dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="220dp"
         android:fontFamily="@font/audiowide"
         android:text="Social"
         android:textSize="20sp"
@@ -25,7 +25,7 @@
         android:id="@+id/BPelis"
         android:layout_width="254dp"
         android:layout_height="54dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="92dp"
         android:fontFamily="@font/audiowide"
         android:text="Buscar pelis"
         android:textSize="20sp"
@@ -39,7 +39,7 @@
         android:id="@+id/BPerfil"
         android:layout_width="254dp"
         android:layout_height="54dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="348dp"
         android:fontFamily="@font/audiowide"
         android:text="Perfil"
         android:textSize="20sp"
@@ -48,4 +48,28 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="112dp"
+        android:layout_height="89dp"
+        android:layout_marginBottom="76dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_disabled" />
+
+    <TextView
+        android:id="@+id/signout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="488dp"
+        android:fontFamily="@font/audiowide"
+        android:text="SignOutGoogle"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
