@@ -9,10 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 public class Menu extends AppCompatActivity {
+
+    private GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +49,7 @@ public class Menu extends AppCompatActivity {
             }
         });
 
-        Button signoutButton = (imageButton) findViewById(R.id.signout);
+        Button signoutButton = (Button) findViewById(R.id.signout);
         signoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
