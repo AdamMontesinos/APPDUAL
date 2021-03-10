@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
@@ -22,11 +23,13 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        ImageButton signout = findViewById(R.id.signoutgoogle);
+
         Button btn1 = (Button) findViewById(R.id.BPelis);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (v.getContext(), BuscarPeli.class);
+                Intent intent = new Intent(v.getContext(), BuscarPeli.class);
                 startActivityForResult(intent, 0);
             }
         });
@@ -35,7 +38,7 @@ public class Menu extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (v.getContext(), Social.class);
+                Intent intent = new Intent(v.getContext(), Social.class);
                 startActivityForResult(intent, 0);
             }
         });
@@ -44,24 +47,19 @@ public class Menu extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (v.getContext(), Perfil.class);
+                Intent intent = new Intent(v.getContext(), Perfil.class);
                 startActivityForResult(intent, 0);
             }
         });
 
-        Button signoutButton = (Button) findViewById(R.id.signout);
-        signoutButton.setOnClickListener(new View.OnClickListener() {
+        signout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.signout:
-                        signOut();
-                        break;
-                }
-
+            public void onClick(View view) {
+                        mGoogleSignInClient.signOut();
             }
         });
     }
+
     private void signOut() {
         mGoogleSignInClient.signOut()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
@@ -70,5 +68,11 @@ public class Menu extends AppCompatActivity {
                         // ...
                     }
                 });
+
+
     }
+
 }
+
+
+
