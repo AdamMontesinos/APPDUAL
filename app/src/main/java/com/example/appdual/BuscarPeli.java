@@ -1,6 +1,7 @@
 package com.example.appdual;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.SearchManager;
@@ -11,9 +12,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.appdual.Class.RecyclerAdapter;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 
 public class BuscarPeli extends AppCompatActivity {
+
+    RecyclerView recyclerView;
+    String nom[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,11 @@ public class BuscarPeli extends AppCompatActivity {
                 showTxtSearch();
             }
         });
+
+        recyclerView = findViewById(R.id.recyclerview);
+        nom = getResources().getStringArray(R.array.Noms);
+
+        RecyclerAdapter myAdapter = new RecyclerAdapter(this,nom);
     }
 
     public void showTxtSearch(){

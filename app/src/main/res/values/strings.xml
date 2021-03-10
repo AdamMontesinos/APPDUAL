@@ -2,4 +2,11 @@
     <string name="app_name">APPDUAL</string>
     <string name="search_hint" />
     <string name="app_label" />
+    <string-array name="Noms">
+        <item>Adam</item>
+        <item>Arnau</item>
+        <item>David</item>
+        <item>Marta</item>
+        <item>Cristian</item>
+    </string-array>
 </resources>
