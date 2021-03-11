@@ -1,6 +1,7 @@
 package com.example.appdual;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
@@ -36,6 +37,8 @@ public class BuscarPeli extends AppCompatActivity {
         nom = getResources().getStringArray(R.array.Noms);
 
         RecyclerAdapter myAdapter = new RecyclerAdapter(this,nom);
+        recyclerView.setAdapter(myAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     public void showTxtSearch(){
