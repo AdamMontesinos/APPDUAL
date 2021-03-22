@@ -4,7 +4,10 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.example.appdual.Class.Film;
+import com.example.appdual.Class.RecyclerAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -76,6 +79,10 @@ public class fetchData extends AsyncTask<Void, Void, Void> {
 
                 PeliLista.add(new Film(title));
             }
+
+            RecyclerAdapter myAdapter = new RecyclerAdapter(this, PeliLista);
+            recyclerView.setAdapter(myAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
         } catch (JSONException e) {
             e.printStackTrace();
         }

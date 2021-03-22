@@ -9,6 +9,7 @@ import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,10 +36,6 @@ public class BuscarPeli extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerview);
         nom = getResources().getStringArray(R.array.Noms);
-
-        RecyclerAdapter myAdapter = new RecyclerAdapter(this,nom);
-        recyclerView.setAdapter(myAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     public void showTxtSearch(){
