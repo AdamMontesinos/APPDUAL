@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.DialogInterface;
@@ -49,8 +50,7 @@ public class BuscarPeli extends AppCompatActivity {
         alert.setPositiveButton("Confirma", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 String movie = input.getText().toString();
-                fetchData process = new fetchData(movie,getActivity());
-                process.execute();
+                prueba(movie);
             }
         });
 
@@ -62,4 +62,8 @@ public class BuscarPeli extends AppCompatActivity {
         alert.show();
     }
 
+    public void prueba(String text) {
+        fetchData process = new fetchData(text,this);
+        process.execute();
+    }
 }

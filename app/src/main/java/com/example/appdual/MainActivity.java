@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fetchData process = new fetchData("The lord of the rings");
-        process.execute();
+        //fetchData process = new fetchData("The lord of the rings");
+        //process.execute();
         //
 
         SignInButton btnGoogle = findViewById(R.id.sign_in_button);
