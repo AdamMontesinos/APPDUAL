@@ -21,7 +21,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     public RecyclerAdapter(Context ct, String nom[]){
         this.context = ct;
-        this.data = itemList;
+        this.data = ;
         Log.i("testNom", "-- " + data.size());
     }
 
