@@ -49,7 +49,7 @@ public class BuscarPeli extends AppCompatActivity {
         alert.setPositiveButton("Confirma", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 String movie = input.getText().toString();
-                fetchData process = new fetchData(movie);
+                fetchData process = new fetchData(movie,getActivity());
                 process.execute();
             }
         });

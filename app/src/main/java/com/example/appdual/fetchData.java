@@ -1,10 +1,12 @@
 package com.example.appdual;
 
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appdual.Class.Film;
 import com.example.appdual.Class.RecyclerAdapter;
@@ -24,12 +26,16 @@ import java.util.List;
 
 public class fetchData extends AsyncTask<Void, Void, Void> {
 
+    ArrayList<Film> ElementPeli;
     protected String data = "";
     protected String dataResults = "";
     protected String movie;
 
-    public fetchData(String movie) {
+    protected Activity activity;
+
+    public fetchData(String movie,Activity activity) {
         this.movie = movie;
+        this.activity = activity;
     }
 
     @Override
@@ -68,7 +74,7 @@ public class fetchData extends AsyncTask<Void, Void, Void> {
 
         try {
             jObject = new JSONObject(data);
-            List<Film> PeliLista = new ArrayList<>();
+            ElementPeli = new ArrayList<>();
 
             JSONArray results = new JSONArray(jObject.getString("results"));
             for(int i=0; i<results.length(); i++){
@@ -77,12 +83,14 @@ public class fetchData extends AsyncTask<Void, Void, Void> {
 
                 Log.i("logTest",  title);
 
-                PeliLista.add(new Film(title));
+                ElementPeli.add(new Film(title));
             }
 
-            RecyclerAdapter myAdapter = new RecyclerAdapter(this, PeliLista);
+            RecyclerAdapter myAdapter = new RecyclerAdapter(activity,ElementPeli);
+            RecyclerView recyclerView = activity.findViewById(R.id.recyclerview);
             recyclerView.setAdapter(myAdapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

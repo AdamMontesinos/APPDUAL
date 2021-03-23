@@ -13,15 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.appdual.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
-    ArrayList data = new ArrayList();
+    private List<Film> data;
     Context context;
 
-    public RecyclerAdapter(Context ct, String nom[]){
+    public RecyclerAdapter(Context ct, List<Film> ListaPeli){
         this.context = ct;
-        //this.data = ;
+        this.data = ListaPeli;
         Log.i("testNom", "-- " + data.size());
     }
 
@@ -35,7 +36,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.myText.setText((Integer) data.get(position));
+        //holder.myText.setText(data.get(position));
+        holder.bindData(data.get(position));
     }
 
     @Override
@@ -50,6 +52,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         public MyViewHolder (@NonNull View itemView){
             super(itemView);
             myText = itemView.findViewById(R.id.Noms);
+        }
+
+        public void bindData(Film film) {
         }
     }
 }

@@ -2,7 +2,6 @@ package com.example.appdual.Class;
 
 public class Film {
     public String nombrepeli;
-    public String status;
 
     public Film(String title) {
         this.nombrepeli = nombrepeli;
