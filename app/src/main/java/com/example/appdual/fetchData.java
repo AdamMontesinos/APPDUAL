@@ -83,6 +83,7 @@ public class fetchData extends AsyncTask<Void, Void, Void> {
 
                 Log.i("logTest",  title);
 
+
                 ElementPeli.add(new Film(title));
             }
 

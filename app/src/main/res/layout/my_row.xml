@@ -13,10 +13,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/Noms"
+            android:id="@+id/NomsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#000000" />
 
     </androidx.cardview.widget.CardView>
 

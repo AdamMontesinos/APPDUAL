@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appdual.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
@@ -51,10 +50,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
         public MyViewHolder (@NonNull View itemView){
             super(itemView);
-            myText = itemView.findViewById(R.id.Noms);
+            myText = itemView.findViewById(R.id.NomsTextView);
         }
 
         public void bindData(Film film) {
+            myText.setText((film.getNombrepeli()));
         }
     }
 }

@@ -4,7 +4,7 @@ public class Film {
     public String nombrepeli;
 
     public Film(String title) {
-        this.nombrepeli = nombrepeli;
+        this.nombrepeli = title;
     }
 
     public String getNombrepeli() {
