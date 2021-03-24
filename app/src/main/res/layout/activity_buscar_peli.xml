@@ -12,7 +12,7 @@
         android:id="@+id/BPelis2"
         android:layout_width="254dp"
         android:layout_height="54dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="44dp"
         android:fontFamily="@font/audiowide"
         android:text="Buscar"
         android:textSize="20sp"

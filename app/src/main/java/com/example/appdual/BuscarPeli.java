@@ -45,7 +45,6 @@ public class BuscarPeli extends AppCompatActivity {
 
         final EditText input = new EditText(this);
         input.setHint("Film");
-        input.setText("Harry Potter");
         alert.setView(input);
 
         alert.setPositiveButton("Confirma", new DialogInterface.OnClickListener() {
