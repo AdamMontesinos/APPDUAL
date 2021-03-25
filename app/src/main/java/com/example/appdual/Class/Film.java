@@ -2,12 +2,13 @@ package com.example.appdual.Class;
 
 public class Film {
     public String nombrepeli;
-    //public String img;
+    public String img;
+    public String color;
 
-    public Film(String title/*,String img*/) {
+    public Film(String title,String img,String color) {
         this.nombrepeli = title;
-        //this.img = img;
-
+        this.img = img;
+        this.color = color;
     }
 
     public String getNombrepeli() {
@@ -18,13 +19,19 @@ public class Film {
         this.nombrepeli = nombrepeli;
     }
 
-    /*public String getImagen() {
+    public String getImagen() {
         return img;
     }
 
     public void setImagen(String img) {
         this.img = img;
     }
-*/
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.img = img;
+    }
 }

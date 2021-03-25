@@ -1,10 +1,13 @@
 package com.example.appdual.Class;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,15 +49,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
+        ImageView PortadaPeli;
         TextView myText;
 
         public MyViewHolder (@NonNull View itemView){
             super(itemView);
             myText = itemView.findViewById(R.id.NomsTextView);
+            PortadaPeli = itemView.findViewById(R.id.PortadaView);
         }
 
         public void bindData(Film film) {
+
             myText.setText((film.getNombrepeli()));
+            PortadaPeli.setColorFilter(Color.parseColor(film.getColor()), PorterDuff.Mode.SRC_IN);
+
         }
     }
 }
