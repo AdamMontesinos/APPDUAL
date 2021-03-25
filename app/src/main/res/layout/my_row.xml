@@ -3,17 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="140dp">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
+        android:layout_width="349dp"
+        android:layout_height="107dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.484">
 
         <TextView
             android:id="@+id/NomsTextView"
@@ -22,7 +21,7 @@
             android:fontFamily="@font/audiowide"
             android:text="TextView"
             android:textColor="#AE1F1F"
-            android:textSize="36sp" />
+            android:textSize="30sp" />
 
     </androidx.cardview.widget.CardView>
 
