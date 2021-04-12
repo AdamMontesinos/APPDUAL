@@ -80,13 +80,12 @@ public class fetchData extends AsyncTask<Void, Void, Void> {
             for(int i=0; i<results.length(); i++){
                 JSONObject movie = new JSONObject(results.getString(i));
                 String title  = movie.getString("title");
-                String ImatgePath = movie.getString("ImatgePath");
-                String Color = movie.getString("Color");
+                String posterPath = movie.getString("poster_path");
+                String backdropPath = movie.getString("backdrop_path");
 
                 Log.i("logTest",  title);
 
-
-                ElementPeli.add(new Film(title,ImatgePath,Color));
+                ElementPeli.add(new Film(title, posterPath, backdropPath));
             }
 
             RecyclerAdapter myAdapter = new RecyclerAdapter(activity,ElementPeli);

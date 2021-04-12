@@ -3,6 +3,7 @@ package com.example.appdual.Class;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appdual.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -61,8 +63,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         public void bindData(Film film) {
 
             myText.setText((film.getNombrepeli()));
-            PortadaPeli.setColorFilter(Color.parseColor(film.getColor()), PorterDuff.Mode.SRC_IN);
 
+            String urlImg = "https://image.tmdb.org/t/p/original/" + film.getPoster_path();
+
+            Picasso.get().load(urlImg).into(PortadaPeli);
         }
     }
 }
