@@ -4,11 +4,13 @@ public class Film {
     public String nombrepeli;
     public String backdrop_path;
     public String poster_path;
+    public String vote_average;
 
-    public Film(String nombrepeli, String backdrop_path, String poster_path) {
+    public Film(String title, String nombrepeli, String backdrop_path, String poster_path) {
         this.nombrepeli = nombrepeli;
         this.backdrop_path = backdrop_path;
         this.poster_path = poster_path;
+        this.vote_average = vote_average;
     }
 
     public String getNombrepeli() {
@@ -33,5 +35,13 @@ public class Film {
 
     public void setPoster_path(String poster_path) {
         this.poster_path = poster_path;
+    }
+
+    public String getRating() {
+        return vote_average;
+    }
+
+    public void setRating(String vote_average) {
+        this.vote_average = vote_average;
     }
 }

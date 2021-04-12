@@ -53,19 +53,21 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
         ImageView PortadaPeli;
         TextView myText;
+        TextView myRating;
 
         public MyViewHolder (@NonNull View itemView){
             super(itemView);
             myText = itemView.findViewById(R.id.NomsTextView);
             PortadaPeli = itemView.findViewById(R.id.PortadaView);
+            myRating = itemView.findViewById(R.id.RatingText);
         }
 
         public void bindData(Film film) {
 
             myText.setText((film.getNombrepeli()));
+            myText.setText((film.getRating()));
 
             String urlImg = "https://image.tmdb.org/t/p/original/" + film.getPoster_path();
-
             Picasso.get().load(urlImg).into(PortadaPeli);
         }
     }
