@@ -6,7 +6,7 @@ public class Film {
     public String poster_path;
     public String vote_average;
 
-    public Film(String title, String nombrepeli, String backdrop_path, String poster_path) {
+    public Film(String nombrepeli, String backdrop_path, String poster_path, String vote_average) {
         this.nombrepeli = nombrepeli;
         this.backdrop_path = backdrop_path;
         this.poster_path = poster_path;

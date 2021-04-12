@@ -65,7 +65,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         public void bindData(Film film) {
 
             myText.setText((film.getNombrepeli()));
-            myText.setText((film.getRating()));
+            myRating.setText((film.getRating()));
 
             String urlImg = "https://image.tmdb.org/t/p/original/" + film.getPoster_path();
             Picasso.get().load(urlImg).into(PortadaPeli);
