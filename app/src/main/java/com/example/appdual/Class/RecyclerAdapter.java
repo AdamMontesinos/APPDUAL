@@ -65,6 +65,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         ImageView PortadaPeli;
         TextView myText;
         TextView myRating;
+        TextView myCountVote;
 
         ConstraintLayout mainLayout;
 
@@ -72,6 +73,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             super(itemView);
             myText = itemView.findViewById(R.id.NomsTextView);
             PortadaPeli = itemView.findViewById(R.id.PortadaView);
+            myCountVote = itemView.findViewById(R.id.countText);
             myRating = itemView.findViewById(R.id.RatingText);
 
             mainLayout = itemView.findViewById(R.id.mainLayout);
@@ -80,6 +82,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         public void bindData(Film film) {
 
             myText.setText((film.getNombrepeli()));
+            myCountVote.setText((film.getVoteCount()));
             myRating.setText((film.getRating()));
 
             String urlImg = "https://image.tmdb.org/t/p/original/" + film.getPoster_path();
