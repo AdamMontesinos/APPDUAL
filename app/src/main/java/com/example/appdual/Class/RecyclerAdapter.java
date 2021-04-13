@@ -1,6 +1,7 @@
 package com.example.appdual.Class;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.net.Uri;
@@ -12,8 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appdual.InfoPeli;
 import com.example.appdual.R;
 import com.squareup.picasso.Picasso;
 
@@ -42,6 +45,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         //holder.myText.setText(data.get(position));
         holder.bindData(data.get(position));
+
+        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intento = new Intent(context, InfoPeli.class);
+                context.startActivity(intento);
+            }
+        });
     }
 
     @Override
@@ -55,11 +66,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         TextView myText;
         TextView myRating;
 
+        ConstraintLayout mainLayout;
+
         public MyViewHolder (@NonNull View itemView){
             super(itemView);
             myText = itemView.findViewById(R.id.NomsTextView);
             PortadaPeli = itemView.findViewById(R.id.PortadaView);
             myRating = itemView.findViewById(R.id.RatingText);
+
+            mainLayout = itemView.findViewById(R.id.mainLayout);
         }
 
         public void bindData(Film film) {
