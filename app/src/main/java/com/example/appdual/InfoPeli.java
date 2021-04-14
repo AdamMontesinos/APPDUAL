@@ -25,6 +25,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class InfoPeli extends AppCompatActivity {
+    ImageView PortadaPeliGran;
+    TextView myText2;
+    TextView myRating2;
+    TextView myDate;
+    TextView myOverview2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,35 +42,19 @@ public class InfoPeli extends AppCompatActivity {
         Film peli = (Film) intent.getSerializableExtra("peli");
 
         Log.i("logTest", "------------------_>" + peli.getNombrepeli());
+
+        myText2 = findViewById(R.id.NomView2);
+        myRating2 = findViewById(R.id.Rating2);
+        myDate = findViewById(R.id.Release2);
+        myOverview2 = findViewById(R.id.Overview2);
+        PortadaPeliGran = findViewById(R.id.PortadaView2);
+
+        myText2.setText(peli.getNombrepeli());
+        myRating2.setText(peli.getRating());
+        myDate.setText(peli.getReleaseDate());
+        myOverview2.setText(peli.getOverview());
+
+        String urlImg = "https://image.tmdb.org/t/p/original/" + peli.getBackdrop_path();
+        Picasso.get().load(urlImg).into(PortadaPeliGran);
     }
-
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-
-        ImageView PortadaPeliGran;
-        TextView myText2;
-        TextView myRating2;
-        TextView myDate;
-        TextView myOverview2;
-
-        public MyViewHolder (@NonNull View itemView){
-            super(itemView);
-            myText2 = itemView.findViewById(R.id.NomView2);
-            myRating2 = itemView.findViewById(R.id.Rating2);
-            myDate = itemView.findViewById(R.id.Release2);
-            myOverview2 = itemView.findViewById(R.id.Overview2);
-            PortadaPeliGran = itemView.findViewById(R.id.PortadaView2);
-        }
-
-        public void bindData(Film film) {
-
-            myText2.setText((film.getNombrepeli()));
-            myRating2.setText((film.getRating()));
-            myDate.setText((film.getReleaseDate()));
-            myOverview2.setText((film.getOverview()));
-
-            String urlImg = "https://image.tmdb.org/t/p/original/" + film.getPoster_path();
-            Picasso.get().load(urlImg).into(PortadaPeliGran);
-        }
-    }
-
 }
