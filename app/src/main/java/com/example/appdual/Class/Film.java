@@ -1,6 +1,8 @@
 package com.example.appdual.Class;
 
-public class Film {
+import java.io.Serializable;
+
+public class Film implements Serializable {
     public String nombrepeli;
     public String backdrop_path;
     public String poster_path;

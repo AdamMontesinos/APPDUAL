@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.net.Uri;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +51,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             @Override
             public void onClick(View v) {
                 Intent intento = new Intent(context, InfoPeli.class);
+                Film peli = data.get(position);
+
+                //Bundle bundle = new Bundle();
+                //bundle.putSerializable("peli", peli);
+
+                intento.putExtra("peli", peli);
+
                 context.startActivity(intento);
             }
         });

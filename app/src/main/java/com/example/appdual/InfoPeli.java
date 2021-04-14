@@ -1,17 +1,22 @@
 package com.example.appdual;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.appdual.Class.Film;
 import com.example.appdual.Class.RecyclerAdapter;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,55 +26,45 @@ import java.util.ArrayList;
 
 public class InfoPeli extends AppCompatActivity {
 
-    ArrayList<Film> ElementPeli;
-    protected String data = "";
-    protected Activity activity;
-
-    ImageView PortadaViewImagen;
-    TextView NomView2Info,Overview2Info,Rating2Info;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_peli);
 
-        PortadaViewImagen = findViewById(R.id.PortadaView2);
-        NomView2Info = findViewById(R.id.NomView2);
-        Overview2Info = findViewById(R.id.Overview2);
-        Rating2Info = findViewById(R.id.Rating2);
+        Intent intent = getIntent();
+        //Necesari Serializable en Objecte
+        Film peli = (Film) intent.getSerializableExtra("peli");
+
+        Log.i("logTest", "------------------_>" + peli.getNombrepeli());
     }
 
-    protected void onPostExecute(Void aVoid){
-        JSONObject jObject = null;
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        try {
-            jObject = new JSONObject(data);
-            ElementPeli = new ArrayList<>();
+        ImageView PortadaPeliGran;
+        TextView myText2;
+        TextView myRating2;
+        TextView myDate;
+        TextView myOverview2;
 
-            JSONArray results = new JSONArray(jObject.getString("results"));
-            for(int i=0; i<results.length(); i++){
-                JSONObject movie = new JSONObject(results.getString(i));
-                String title  = movie.getString("title");
-                String posterPath = movie.getString("poster_path");
-                String backdropPath = movie.getString("backdrop_path");
-                String Overview = movie.getString("overview");
-                String ReleaseDate = movie.getString("release_date");
-                String VoteCount = movie.getString("vote_count");
-                String voteAverage = movie.getString("vote_average");
-
-                Log.i("logTest",  title);
-
-                ElementPeli.add(new Film(title, posterPath, backdropPath, Overview, ReleaseDate, VoteCount,voteAverage));
-            }
-
-            RecyclerAdapter myAdapter = new RecyclerAdapter(activity,ElementPeli);
-            RecyclerView recyclerView = activity.findViewById(R.id.recyclerview);
-            recyclerView.setAdapter(myAdapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-
-        } catch (JSONException e) {
-            e.printStackTrace();
+        public MyViewHolder (@NonNull View itemView){
+            super(itemView);
+            myText2 = itemView.findViewById(R.id.NomView2);
+            myRating2 = itemView.findViewById(R.id.Rating2);
+            myDate = itemView.findViewById(R.id.Release2);
+            myOverview2 = itemView.findViewById(R.id.Overview2);
+            PortadaPeliGran = itemView.findViewById(R.id.PortadaView2);
         }
 
+        public void bindData(Film film) {
+
+            myText2.setText((film.getNombrepeli()));
+            myRating2.setText((film.getRating()));
+            myDate.setText((film.getReleaseDate()));
+            myOverview2.setText((film.getOverview()));
+
+            String urlImg = "https://image.tmdb.org/t/p/original/" + film.getPoster_path();
+            Picasso.get().load(urlImg).into(PortadaPeliGran);
+        }
     }
+
 }
