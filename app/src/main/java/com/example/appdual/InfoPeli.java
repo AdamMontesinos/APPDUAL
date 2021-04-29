@@ -11,11 +11,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.appdual.Class.Film;
 import com.example.appdual.Class.RecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -31,6 +37,10 @@ public class InfoPeli extends AppCompatActivity {
     TextView myDate;
     TextView myOverview2;
 
+    protected Button guardar;
+    protected ArrayList<Film> PelisSubidas;
+
+    DatabaseReference db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,5 +66,40 @@ public class InfoPeli extends AppCompatActivity {
 
         String urlImg = "https://image.tmdb.org/t/p/original/" + peli.getBackdrop_path();
         Picasso.get().load(urlImg).into(PortadaPeliGran);
+
+        PelisSubidas = new ArrayList<Film>();
+
+        db = FirebaseDatabase.getInstance().getReference().child("Films");
+
+        guardar.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                //Film film = new Film();
+                //PelisSubidas.add(film);
+
+                db.setValue(PelisSubidas);
+            }
+        });
+
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.i("logTest " ,""+dataSnapshot.getChildrenCount());
+
+                PelisSubidas.clear();
+
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Film pelicula = postSnapshot.getValue(Film.class);
+                    PelisSubidas.add(pelicula);
+                    Log.i("logTest",pelicula.getNombrepeli());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.i("logTest", "Failed to read value.", error.toException());
+            }
+        });
+
     }
 }
