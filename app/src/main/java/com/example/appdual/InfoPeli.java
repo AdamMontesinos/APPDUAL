@@ -78,7 +78,7 @@ public class InfoPeli extends AppCompatActivity {
 
         guardar.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Film film = new Film(myText2.getText().toString(),"","","","","","");
+                Film film = new Film(myText2.getText().toString(),"","",myOverview2.getText().toString(),myDate.getText().toString(),"",myRating2.getText().toString());
                 PelisSubidas.add(film);
 
                 db.setValue(PelisSubidas);
