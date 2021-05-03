@@ -6,12 +6,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,11 +39,12 @@ public class InfoPeli extends AppCompatActivity {
     TextView myDate;
     TextView myOverview2;
 
-    protected Button guardar;
+    protected ImageButton guardar;
     protected ArrayList<Film> PelisSubidas;
 
     DatabaseReference db;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +55,8 @@ public class InfoPeli extends AppCompatActivity {
         Film peli = (Film) intent.getSerializableExtra("peli");
 
         Log.i("logTest", "------------------_>" + peli.getNombrepeli());
+
+        guardar = findViewById(R.id.btnguardar);
 
         myText2 = findViewById(R.id.NomView2);
         myRating2 = findViewById(R.id.Rating2);
@@ -73,8 +78,8 @@ public class InfoPeli extends AppCompatActivity {
 
         guardar.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                //Film film = new Film();
-                //PelisSubidas.add(film);
+                Film film = new Film(myText2.getText().toString(),"","","","","","");
+                PelisSubidas.add(film);
 
                 db.setValue(PelisSubidas);
             }

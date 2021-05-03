@@ -11,6 +11,10 @@ public class Film implements Serializable {
     public String vote_count;
     public String vote_average;
 
+    public Film(){
+
+    }
+
     public Film(String nombrepeli, String backdrop_path, String poster_path, String overview, String release_date, String vote_count, String vote_average) {
         this.nombrepeli = nombrepeli;
         this.backdrop_path = backdrop_path;
