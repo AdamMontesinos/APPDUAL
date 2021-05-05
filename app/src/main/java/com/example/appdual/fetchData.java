@@ -86,10 +86,11 @@ public class fetchData extends AsyncTask<Void, Void, Void> {
                 String ReleaseDate = movie.getString("release_date");
                 String VoteCount = movie.getString("vote_count");
                 String voteAverage = movie.getString("vote_average");
+                int id = movie.getInt("id");
 
                 Log.i("logTest",  title);
 
-                ElementPeli.add(new Film(title, posterPath, backdropPath, Overview, ReleaseDate, VoteCount, voteAverage));
+                ElementPeli.add(new Film(title, posterPath, backdropPath, Overview, ReleaseDate, VoteCount, voteAverage, id));
             }
 
             RecyclerAdapter myAdapter = new RecyclerAdapter(activity,ElementPeli);

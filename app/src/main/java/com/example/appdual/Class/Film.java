@@ -10,12 +10,13 @@ public class Film implements Serializable {
     public String release_date;
     public String vote_count;
     public String vote_average;
+    public int id;
 
     public Film(){
 
     }
 
-    public Film(String nombrepeli, String backdrop_path, String poster_path, String overview, String release_date, String vote_count, String vote_average) {
+    public Film(String nombrepeli, String backdrop_path, String poster_path, String overview, String release_date, String vote_count, String vote_average, int id) {
         this.nombrepeli = nombrepeli;
         this.backdrop_path = backdrop_path;
         this.poster_path = poster_path;
@@ -23,7 +24,10 @@ public class Film implements Serializable {
         this.release_date = release_date;
         this.vote_count = vote_count;
         this.vote_average = vote_average;
+        this.id = id;
     }
+
+
 
     public String getNombrepeli() {
         return nombrepeli;
@@ -79,5 +83,13 @@ public class Film implements Serializable {
 
     public void setRating(String vote_average) {
         this.vote_average = vote_average;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
