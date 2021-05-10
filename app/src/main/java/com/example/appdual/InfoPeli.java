@@ -39,6 +39,8 @@ public class InfoPeli extends AppCompatActivity {
     TextView myDate;
     TextView myOverview2;
 
+    boolean comprobacio = true;
+
     protected ImageButton guardar;
     protected ArrayList<Film> PelisSubidas;
 
@@ -76,29 +78,33 @@ public class InfoPeli extends AppCompatActivity {
 
         db = FirebaseDatabase.getInstance().getReference().child("Films");
 
-        guardar.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+        existePeliSerie(peli);
 
-                db.child(Integer.toString(peli.getId())).setValue(peli);
-
-
-                //PelisSubidas.add(film);
-
-                //db.setValue(PelisSubidas);
+        guardar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (comprobacio) {
+                    db.child(Integer.toString(peli.getId())).removeValue();
+                    //Cambio imagen
+                    comprobacio = false;
+                } else {
+                    db.child(Integer.toString(peli.getId())).setValue(peli);
+                    //Cambio imagen
+                    comprobacio = true;
+                }
             }
         });
 
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.i("logTest " ,""+dataSnapshot.getChildrenCount());
+                Log.i("logTest ", "" + dataSnapshot.getChildrenCount());
 
                 PelisSubidas.clear();
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Film pelicula = postSnapshot.getValue(Film.class);
                     PelisSubidas.add(pelicula);
-                    Log.i("logTest",pelicula.getNombrepeli());
+                    Log.i("logTest", pelicula.getNombrepeli());
                 }
             }
 
@@ -106,6 +112,27 @@ public class InfoPeli extends AppCompatActivity {
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
                 Log.i("logTest", "Failed to read value.", error.toException());
+            }
+        });
+
+
+    }
+    public void existePeliSerie (Film peli){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        db = FirebaseDatabase.getInstance().getReference().child("Films");
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.hasChild(Integer.toString(peli.getId()))) {
+                    comprobacio = false;
+                } else {
+                    comprobacio = true;
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
 
