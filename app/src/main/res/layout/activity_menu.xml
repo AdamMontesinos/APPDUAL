@@ -41,7 +41,7 @@
         android:layout_height="54dp"
         android:layout_marginTop="348dp"
         android:fontFamily="@font/audiowide"
-        android:text="Perfil"
+        android:text="Mis listas"
         android:textSize="20sp"
         app:backgroundTint="#AE1F1F"
         app:layout_constraintEnd_toEndOf="parent"

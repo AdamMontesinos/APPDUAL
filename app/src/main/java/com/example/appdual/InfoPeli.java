@@ -32,6 +32,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import static com.example.appdual.R.*;
+import static com.example.appdual.R.drawable.*;
+
 public class InfoPeli extends AppCompatActivity {
     ImageView PortadaPeliGran;
     TextView myText2;
@@ -50,7 +53,7 @@ public class InfoPeli extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info_peli);
+        setContentView(layout.activity_info_peli);
 
         Intent intent = getIntent();
         //Necesari Serializable en Objecte
@@ -58,13 +61,13 @@ public class InfoPeli extends AppCompatActivity {
 
         Log.i("logTest", "------------------_>" + peli.getNombrepeli());
 
-        guardar = findViewById(R.id.btnguardar);
+        guardar = findViewById(id.btnguardar);
 
-        myText2 = findViewById(R.id.NomView2);
-        myRating2 = findViewById(R.id.Rating2);
-        myDate = findViewById(R.id.Release2);
-        myOverview2 = findViewById(R.id.Overview2);
-        PortadaPeliGran = findViewById(R.id.PortadaView2);
+        myText2 = findViewById(id.NomView2);
+        myRating2 = findViewById(id.Rating2);
+        myDate = findViewById(id.Release2);
+        myOverview2 = findViewById(id.Overview2);
+        PortadaPeliGran = findViewById(id.PortadaView2);
 
         myText2.setText(peli.getNombrepeli());
         myRating2.setText(peli.getRating());
@@ -84,11 +87,11 @@ public class InfoPeli extends AppCompatActivity {
             public void onClick(View v) {
                 if (comprobacio) {
                     db.child(Integer.toString(peli.getId())).removeValue();
-                    //Cambio imagen
+                    guardar.setImageDrawable(getResources().getDrawable(ic_baseline_star_outline_24));
                     comprobacio = false;
                 } else {
                     db.child(Integer.toString(peli.getId())).setValue(peli);
-                    //Cambio imagen
+                    guardar.setImageDrawable(getResources().getDrawable(ic_baseline_star_rate_24));
                     comprobacio = true;
                 }
             }
